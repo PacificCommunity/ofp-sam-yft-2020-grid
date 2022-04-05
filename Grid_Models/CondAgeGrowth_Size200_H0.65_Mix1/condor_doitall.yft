@@ -1,0 +1,5 @@
+#!/bin/sh
+cd $_CONDOR_SCRATCH_DIR
+export PATH=.:$PATH
+export ADTMP1=.
+ $MFCL yft.frq in.par out.par -switch 2 1 1 2000 1 50 -3

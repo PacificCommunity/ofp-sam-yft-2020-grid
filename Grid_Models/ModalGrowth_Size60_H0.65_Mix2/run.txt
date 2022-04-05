@@ -1,0 +1,5 @@
+Growth: SizeComp
+Mixing:  2
+Steepness: 0.65
+SizeComp:  60
+Narual Mortality:  0.23

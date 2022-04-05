@@ -1,0 +1,5 @@
+Growth: CondLen
+Mixing:  1
+Steepness:  0.95
+SizeComp:  20
+Narual Mortality:  0.2

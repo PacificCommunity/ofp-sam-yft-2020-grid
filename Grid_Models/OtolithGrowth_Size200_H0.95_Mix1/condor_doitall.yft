@@ -1,0 +1,40 @@
+#!/bin/sh
+cd $_CONDOR_SCRATCH_DIR
+export PATH=.:$PATH
+export ADTMP1=.
+if [ -f out.par ]; then
+  rm savein.par
+  mv in.par savein.par
+  mv out.par in.par
+fi
+$MFCL yft.frq in.par out.par -file - <<PHASE1
+  1 50 -3
+  1 1 7000
+ -999 49 200         # divide LL LF sample sizes by 20 (default)
+           -999 50 200         # divide LL WF sample sizes by 20 (default=10)
+           # For longline ALL and Index fisheries reduce the sample size in half so we aren't double counting the sample sizes
+           -1  49 400    -1  50 400
+           -2  49 400    -2  50 400
+           -4  49 400    -4  50 400
+           -7  49 400    -7  50 400
+           -8  49 400    -8  50 400
+           -9  49 400    -9  50 400
+           -11 49 400    -11 50 400
+           -12 49 400    -12 50 400
+           -29 49 400    -29 50 400
+           -33 49 400    -33 50 400
+           -34 49 400    -34 50 400
+           -35 49 400    -35 50 400
+           -36 49 400    -36 50 400
+           -37 49 400    -37 50 400
+           -38 49 400    -38 50 400
+           -39 49 400    -39 50 400
+           -40 49 400    -40 50 400
+           -41 49 400    -41 50 400
+  1 12 0 
+  1 13 0 
+  1 14 0 
+  1 240 0 
+  1 226 1
+-9999 1 1
+PHASE1

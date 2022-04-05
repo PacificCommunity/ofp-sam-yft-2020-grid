@@ -1,0 +1,5 @@
+Growth: Rich
+Mixing:  1
+Steepness:  0.8
+SizeComp:  60
+Narual Mortality:  0.2
