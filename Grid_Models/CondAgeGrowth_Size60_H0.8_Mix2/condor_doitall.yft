@@ -1,9 +1,9 @@
 #!/bin/sh
-cd $_CONDOR_SCRATCH_DIR
-export PATH=.:$PATH
+# cd $_CONDOR_SCRATCH_DIR
+# export PATH=.:$PATH
 export ADTMP1=.
+export MFCL=./mfclo64
 if [ -f out.par ]; then
-  rm savein.par
   mv in.par savein.par
   mv out.par in.par
 fi
