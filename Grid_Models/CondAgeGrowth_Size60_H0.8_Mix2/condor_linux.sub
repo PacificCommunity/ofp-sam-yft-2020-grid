@@ -1,5 +1,4 @@
 universe = vanilla
-getenv = false
 
 error = $(Cluster).$(Process).mfcl.err
 log = $(Cluster).$(Process).mfcl.log
