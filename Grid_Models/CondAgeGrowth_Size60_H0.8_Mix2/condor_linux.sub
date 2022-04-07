@@ -1,0 +1,22 @@
+universe = vanilla
+getenv = false
+
+error = $(Cluster).$(Process).mfcl.err
+log = $(Cluster).$(Process).mfcl.log
+output = $(Cluster).$(Process).mfcl.out
+
+requirements = (OpSys == "LINUX")
+request_cpus = 1
+request_memory = 2000
+request_disk = 30000
+
+executable = condor_doitall.yft
+
+should_transfer_files = YES
+TRANSFER_INPUT_FILES = yft.frq, yft.tag, mfcl.cfg, mfclo64, yft.age_length, in.par, out.par, condor_doitall.yft
+
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files = plot-out.par.rep
+transfer_output_remaps = "plot-out.par.rep = $(Cluster).$(Process).plot-out.par.rep"
+
+queue
