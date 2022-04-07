@@ -7,8 +7,8 @@ output = $(Cluster).$(Process).mfcl.out
 
 requirements = (OpSys == "LINUX")
 request_cpus = 1
-request_memory = 2000
-request_disk = 30000
+request_memory = 6000
+request_disk = 400000
 
 executable = condor_doitall.yft
 
