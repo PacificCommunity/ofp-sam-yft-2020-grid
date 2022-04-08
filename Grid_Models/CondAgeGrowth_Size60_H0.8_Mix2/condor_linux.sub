@@ -12,7 +12,7 @@ request_disk = 400000
 executable = condor_doitall.yft
 
 should_transfer_files = YES
-TRANSFER_INPUT_FILES = yft.frq, yft.tag, mfcl.cfg, mfclo64, yft.age_length, in.par, out.par, condor_doitall.yft
+TRANSFER_INPUT_FILES = condor_doitall.yft, in.par, out.par, mfclo64, mfcl.cfg, yft.frq, yft.tag, yft.age_length
 
 when_to_transfer_output = ON_EXIT_OR_EVICT
 transfer_output_files = plot-out.par.rep
