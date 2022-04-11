@@ -13,5 +13,5 @@ transfer_output_remaps = "doitall.condor = $(Cluster).$(Process).doitall.condor"
 when_to_transfer_output = ON_EXIT_OR_EVICT
 priority=0
 TRANSFER_INPUT_FILES = Start.tar.gz
-TRANSFER_OUTPUT_FILES = End.tar.gz, routine_save
+TRANSFER_OUTPUT_FILES = End.tar.gz
 queue
