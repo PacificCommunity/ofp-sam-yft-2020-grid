@@ -7,7 +7,6 @@ set
 
 # Upack everything from the tar file
 tar -xzf Start.tar.gz
-mv condor_doitall*.* doitall.condor
 dos2unix doitall.condor
 export MFCL=./mfclo64
 # rm mfclo64.exe
