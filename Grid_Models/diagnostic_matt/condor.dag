@@ -1,18 +1,18 @@
-JOB  Phase0   DAGcondorLIN.sub
-JOB  Phase1   DAGcondorLIN.sub 
-JOB  Phase2   DAGcondorLIN.sub
-JOB  Phase3   DAGcondorLIN.sub
-JOB  Phase4   DAGcondorLIN.sub
-JOB  Phase5   DAGcondorLIN.sub
-JOB  Phase6   DAGcondorLIN.sub
-JOB  Phase7   DAGcondorLIN.sub
-JOB  Phase8   DAGcondorLIN.sub
-JOB  Phase9   DAGcondorLIN.sub
-JOB  Phase10  DAGcondorLIN.sub
-JOB  Phase11  DAGcondorLIN.sub
-JOB  Phase12  DAGcondorLIN.sub
-JOB  Phase13  DAGcondorLIN.sub
-JOB  Phase14  DAGcondorLIN.sub
+JOB  Phase0   condor.sub
+JOB  Phase1   condor.sub
+JOB  Phase2   condor.sub
+JOB  Phase3   condor.sub
+JOB  Phase4   condor.sub
+JOB  Phase5   condor.sub
+JOB  Phase6   condor.sub
+JOB  Phase7   condor.sub
+JOB  Phase8   condor.sub
+JOB  Phase9   condor.sub
+JOB  Phase10  condor.sub
+JOB  Phase11  condor.sub
+JOB  Phase12  condor.sub
+JOB  Phase13  condor.sub
+JOB  Phase14  condor.sub
 
 PARENT Phase0  CHILD Phase1
 SCRIPT POST Phase0 change0.sh
