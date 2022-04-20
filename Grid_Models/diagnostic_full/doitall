@@ -1,7 +1,4 @@
 #!/bin/sh
-# cd $_CONDOR_SCRATCH_DIR
-# export PATH=.:$PATH
-# export ADTMP1=.
 MFCL=./mfclo64
 
 #  ------------------------
@@ -10,7 +7,7 @@ MFCL=./mfclo64
 #
 if [ ! -f 00.par ]; then
  $MFCL yft.frq yft.ini 00.par -makepar
-  exit
+  # exit
 fi
 
 ###
@@ -307,7 +304,7 @@ if [ ! -f 01.par ]; then
  -40 66 1
  -41 66 1
 PHASE1
-  exit
+  # exit
 fi
 
 ###
@@ -334,7 +331,7 @@ if [ ! -f 02.par ]; then
  1 50 0         # set convergence criterion to 1
  2 113 0 	 # Turn off the useless parameter rec_init_diff
 PHASE2
-  exit
+  # exit
 fi
 
 #  ---------
@@ -356,7 +353,7 @@ if [ ! -f 03.par ]; then
  -40  45 50000
  -41  45 50000
 PHASE3
-  exit
+  # exit
 fi
 
 #  ---------
@@ -375,7 +372,7 @@ if [ ! -f 04.par ]; then
  -40  45 100000
  -41  45 100000
 PHASE4
-  exit
+  # exit
 fi
 
 #  ---------
@@ -393,7 +390,7 @@ if [ ! -f 05.par ]; then
  -100000 8 1
  -100000 9 1
 PHASE5
-  exit
+  # exit
 fi
 
 #  ---------
@@ -406,7 +403,7 @@ if [ ! -f 06.par ]; then
  1 13 1	  	 # estimate mean length of largest age class
  1 14 1          # estimate von Bertalanffy K
 PHASE6
-  exit
+  # exit
 fi
 
 #  ---------
@@ -417,7 +414,7 @@ if [ ! -f 07.par ]; then
  1 15 1          # estimate overall SD
  1 16 1          # estimate length dependent SD
 PHASE7
-  exit
+  # exit
 fi
 
 #  ---------
@@ -429,7 +426,7 @@ if [ ! -f 08.par ]; then
  1 182 0
  1 184 0
 PHASE8
-  exit
+  # exit
 fi
 
 #  ---------
@@ -464,7 +461,7 @@ if [ ! -f 09.par ]; then
  1 50 -1	    	  # convergence criteria
  1 1 500	  # extra evals
 PHASE9
-  exit
+  # exit
 fi
 
 #  ---------
@@ -477,7 +474,7 @@ if [ ! -f 10.par ]; then
   1 1 30000
   1 50 -2
 PHASE10
-  exit
+  # exit
 fi
 
 if [ ! -f 11.par ]; then
@@ -485,7 +482,7 @@ if [ ! -f 11.par ]; then
   1 50 -2
   1 1 50000
 PHASE11
-  exit
+  # exit
 fi
 
 if [ ! -f 12.par ]; then
@@ -493,5 +490,5 @@ if [ ! -f 12.par ]; then
   1 50 -3
   1 1 50000
 PHASE12
-  exit
+  # exit
 fi
