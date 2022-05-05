@@ -477,7 +477,7 @@ PHASE10
 fi
 
 if [ ! -f 11.par ]; then
- $MFCL yft.frq 10a.par 11.par -file - <<PHASE11
+ $MFCL yft.frq 10.par 11.par -file - <<PHASE11
   1 50 -2
   1 1 50000
 PHASE11
