@@ -1,5 +1,5 @@
 universe = vanilla
-executable = runPhase.sh
+executable = condor_wrapper.sh
 getenv = false
 error = $(Cluster).$(Process).condor_mfcl.err
 log = $(Cluster).$(Process).condor_mfcl.log
