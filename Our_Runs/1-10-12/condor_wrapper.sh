@@ -1,5 +1,5 @@
 #!/bin/bash
 
 tar -xzf Start.tar.gz
-./condor_doitall.sh
+./doitall.condor
 tar -czf End.tar.gz --exclude '*.tar.gz' *
