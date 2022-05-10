@@ -1,5 +1,7 @@
 #!/bin/sh
 
+MFCL=./mfclo64
+
 #  ------------------------
 #  PHASE 0 - create initial par file
 #  ------------------------
