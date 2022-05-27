@@ -90,3 +90,53 @@ ssb <- rowSums(r$AdultBiomass)
 ssb.annual <- colMeans(matrix(ssb, nrow=4))
 years <- unique(trunc(r$yrs))
 out <- data.frame(Year=years, SSB=ssb.annual)
+
+
+## 4  Examine Phases
+
+p00 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/00.par")
+p01 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/01.par")
+p02 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/02.par")
+p03 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/03.par")
+p04 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/04.par")
+p05 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/05.par")
+p06 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/06.par")
+p07 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/07.par")
+p08 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/08.par")
+p09 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/09.par")
+p10 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/10.par")
+p10a <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/10a.par")
+p11 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/11.par")
+p12 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/12.par")
+p12a <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/12a.par")
+p13 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/13.par")
+p14 <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Diagnostic/14.par")
+pgrid <- read.MFCLPar("z:/yft/2020/assessment/ModelRuns/Grid/CondLen_M0.2_Size60_H0.8_Mix2/out.par")
+pzip <- read.MFCLPar("https://raw.githubusercontent.com/PacificCommunity/ofp-sam-yft-2020-grid/main/Grid_Models/CondAgeGrowth_Size60_H0.8_Mix2/out.par")
+p <- list(p01, p02, p03, p04, p05, p06, p07, p08, p09,
+          p10, p10a, p11, p12, p12a, p13, p14, pgrid, pzip)
+names(p) <- c("p01", "p02", "p03", "p04", "p05", "p06", "p07", "p08", "p09",
+              "p10", "p10a", "p11", "p12", "p12a", "p13", "p14", "pgrid", "pzip")
+ptable <- data.frame(Phase=substring(names(p), 2),
+                     npar=sapply(p, n_pars),
+                     logL=sapply(p, obj_fun))
+rownames(ptable) <- ptable$Phase
+
+r10 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-10.par.rep")
+r11 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-11.par.rep")
+r12 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-12.par.rep")
+r13 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-13.par.rep")
+r14 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-14.par.rep")
+rgrid <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Grid/CondLen_M0.2_Size60_H0.8_Mix2/plot-out.par.rep")
+rzip <- read.MFCLRep("https://raw.githubusercontent.com/PacificCommunity/ofp-sam-yft-2020-grid/main/Grid_Models/CondAgeGrowth_Size60_H0.8_Mix2/plot-out.par.rep")
+
+r <- list(r10, r11, r12, r13, r14, rgrid, rzip)
+names(r) <- c("r10", "r11", "r12", "r13", "r14", "rgrid", "rzip")
+sblatest <- function(x) drop(tail(SBlatest(x), 1))
+sbrecent <- function(x) drop(tail(SBrecent(x), 1))
+sbsbf0 <- function(x) drop(tail(SBSBF0(x), 1))
+rtable <- data.frame(Phase=substring(names(r), 2),
+                     SBlatest=sapply(r, sblatest),
+                     SBrecent=sapply(r, sbrecent),
+                     SBSBF0=sapply(r, sbsbf0))
+rownames(rtable) <- rtable$Phase
