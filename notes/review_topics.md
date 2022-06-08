@@ -1,7 +1,6 @@
 # Review Topics
 
-<img src="png/StepBioAlt.png" width="200">
-<img src="png/StepDepAlt.png" width="200">
+<img src="png/StepBioAlt.png" width="400">&nbsp;<img src="png/StepDepAlt.png" width="400">
 
 Step       | Report | Penguin | Effect on SBSBF0 | Effect on SB  | Review focus
 ---------- | ------ | ------- | ---------------- | ------------- | ---------------------------
