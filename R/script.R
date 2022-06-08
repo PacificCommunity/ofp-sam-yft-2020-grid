@@ -59,6 +59,8 @@ sb <- data.frame(Year=our$Year, pdiag10=pdiag10$SB, pdiag12=pdiag12$SB, pdiag=pd
 depletion <- data.frame(Year=our$Year, pdiag10=pdiag10$Depletion, pdiag12=pdiag12$Depletion, pdiag=pdiag$Depletion, pgrid=pgrid$Depletion, web=web$Depletion, our=our$Depletion)
 round(sb)
 round(depletion, 4)
+write.taf(sb, "sb.csv")
+write.taf(depletion, "depletion.csv")
 
 matplot(sb[1], sb[-1], type="l", lty=1, lwd=3, ylim=lim(sb[-1]), xlab="Year", ylab="SB")
 matplot(sb[1], sb[-1], type="l", lty=1, lwd=3, xlab="Year", ylab="SB (kt)", xlim=c(2010,2018), ylim=c(1700,2300))
@@ -129,7 +131,6 @@ r13 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-13.par.rep
 r14 <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Diagnostic/plot-14.par.rep")
 rgrid <- read.MFCLRep("z:/yft/2020/assessment/ModelRuns/Grid/CondLen_M0.2_Size60_H0.8_Mix2/plot-out.par.rep")
 rzip <- read.MFCLRep("https://raw.githubusercontent.com/PacificCommunity/ofp-sam-yft-2020-grid/main/Grid_Models/CondAgeGrowth_Size60_H0.8_Mix2/plot-out.par.rep")
-
 r <- list(r10, r11, r12, r13, r14, rgrid, rzip)
 names(r) <- c("r10", "r11", "r12", "r13", "r14", "rgrid", "rzip")
 sblatest <- function(x) drop(tail(SBlatest(x), 1))
@@ -140,3 +141,11 @@ rtable <- data.frame(Phase=substring(names(r), 2),
                      SBrecent=sapply(r, sbrecent),
                      SBSBF0=sapply(r, sbsbf0))
 rownames(rtable) <- rtable$Phase
+
+full <- merge(ptable, rtable, all.x=TRUE)
+full$delta.npar <- full$npar - full$npar[1]
+full$delta.logL <- full$logL - full$logL[1]
+full$delta.SBlatest <- full$SBlatest - full$SBlatest[full$Phase=="10"]
+full$delta.SBrecent <- full$SBrecent - full$SBrecent[full$Phase=="10"]
+full$delta.SBSBF0 <- full$SBSBF0 - full$SBSBF0[full$Phase=="10"]
+write.taf(full, "phases.csv")
